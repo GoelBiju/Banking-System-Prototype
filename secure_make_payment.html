@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>EBank - Account - Instant Transfer</title>
+    <!-- Get favicon working -->
+    <link rel="shortcut icon" href="assets/ebank_favicon.ico" type="image/x-icon" />
+
+    <!-- Add Bootstrap 4 to website -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Add FontAwesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <!-- Local Stylesheet -->
+    <link rel="stylesheet"  href="css/stylesheet.css" />
+
+    <!-- Run the JavaScript relating to the secure dashboard. -->
+    <script src='js/secure-dashboard-payment.js'></script>
+  </head>
+
+  <body id="general-secure-page">
+    <div class="secure-page-wrapper">
+      <!-- Account sidebar -->
+      <nav id="account-sidebar">
+        <div class="account-sidebar-header">
+            <a href="landing_page.html"><img border="0" alt="EBank By Goel Technologies" src="assets/images/ebank_logo.png"></a>
+          <h3>EBank - Your Account</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+          <p><strong>Your Account Options:</strong></p>
+
+          <li>
+            <a href="secure_dashboard.html">Account Details & Transactions</a>
+          </li>
+
+          <li class="active">
+            <a href="#">Make a Payment</a>
+          </li>
+        </ul>
+
+        <ul class="list-unstyled others">
+          <li>
+            <!-- Link which acts a sign out button. -->
+            <a href="#" onclick="signOut();" class="sign-out">Sign Out</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div id="content">
+        <!-- Sidebar toggle -->
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="container-fluid">
+            <button type="button" id="sidebarCollapse" class="btn btn-info">
+              <i class="fas fa-align-left">
+                <span>View Your Account Options</span>
+              </i>
+            </button>
+          </div>
+        </nav>
+
+        <!-- Payment Info -->
+        <div id="make-payment-info" class="container-fluid">
+          <h2>Make a Payment</h2>
+          <p>
+            <strong>NOTE: The registration forms allows for users to make payments, this is currently not yet function but in a implemented system
+                it would ask for confirmation and then redirect the user back to the dashboard where their dashboard is updated with details of the payment.</strong><br/><br/>
+            It is easy to transfer money with EBank. Simply complete the 3 step form below and your recipient will receive your 
+            payment within an hour or a select period you can set (up to 12 Months).
+            Offering the best conversion rates, EBank will be partner when it comes to transferring money. 
+          </p>
+        </div>
+
+        <!-- Make Payment (Instant Transfer) form  -->
+        <!-- Needs: Account to pay from (display A/C Name, User name, Sort code and a/c number),
+                    Name of recipient, Recipient sort code, Recipient A/C Number, Amount, Date to send (now or later).
+                    Confirm payment details.
+        -->
+        <div class="card bg-light">
+          <article class="card-body mx-auto" style="max-width: 400px;">
+            <h4 class="card-title mt-1 text-center">EBank - Quick Pay&trade;</h4>
+              <form id="make-payment-form">
+                <!-- Personal Info. Divider. -->
+                <p class="divider-text">
+                  <span class="bg-light">Select Account to Transfer From</span>
+                </p>
+
+                <!-- Account Type to send money from -->
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"> <i class="fa fa-credit-card"></i> </span>
+                  </div>
+                  <select id="payment-acc-type" class="form-control" onchange="" required>
+                    <option value="Current A/C">Current Account - £ <i id="curr-acc-val">1,039.20</i></option>
+                    <option value="Credit Card A/C">Credit Card - £ <i id="credit-acc-val">211.32</i></option>
+                  </select>
+                </div>
+
+                <!-- Personal Info. Divider. -->
+                <p class="divider-text">
+                  <span class="bg-light">Recipient Information</span>
+                </p>
+    
+                <!-- Recipient First name -->
+                <div class="form-group input-group">
+                  
+                  <div class="input-group-prepend">
+                      <span class="input-group-text"> <i class="fa fa-user"></i></span>
+                  </div>
+                  <input id="payment-payee-fname" name="" class="form-control" placeholder="Payee First name" type="text" required>
+                </div>
+                
+                <!-- Recipient Last name -->
+                <div class="form-group input-group">
+                  <div class="input-group-prepend">
+                      <span class="input-group-text"> <i class="fa fa-user"></i></span>
+                  </div>
+                  <input id="payment-payee-lname" name="" class="form-control" placeholder="Payee Last name" type="text" required>
+                </div>
+
+                <!-- Reference -->
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-user"></i></span>
+                    </div>
+                    <input id="payment-reference" name="" class="form-control" placeholder="Payment Reference" type="text" required>
+                </div>
+  
+                <!-- Account Info. Divider. -->
+                <p class="divider-text">
+                    <span class="bg-light">Recipient Account Information</span>
+                </p>
+                <p style="font-size: 10pt">Please enter your Account Number and Sort-code as a full numbers with no spaces or hypens.</p>                
+    
+                <!-- Account Number (Length of 8 digits) -->
+                <div class="form-group input-group">  
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"> <i class="fa fa-credit-card"></i></span>
+                    </div>
+                    <input id="payment-payee-acc-number" name="" class="form-control" placeholder="Payee Account Number" type="text" pattern="\d*" minlength="8" maxlength="8" required>
+                </div>
+    
+                <!-- Account Sort-Code (Length of 6 digits) -->
+                <div class="form-group input-group">  
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"> <i class="fa fa-credit-card"></i></span>
+                    </div>
+                    <input id="payment-payee-acc-sortcode" name="" class="form-control" placeholder="Payee Account Sort-code" type="text" pattern="\d*" minlength="6" maxlength="6" required>
+                  </div>
+
+                  <div class="form-group input-group">  
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"> <i class="fa fa-credit-card"></i></span>
+                    </div>
+                    <input id="payment-payee-amount" name="" class="form-control" placeholder="Payee Amount" type="number" required>
+                  </div>
+                  
+              <!-- Submit button - we will not use submit to send data but use tosimulate submit with validation. -->
+              <div class="form-group">
+                  <button type="submit" class="btn btn-success btn-block">Transfer Money</button>
+              </div>   
+    
+            </form>
+        </article>
+      </div>
+    </div>
+
+    <!-- Modal error message to handle events that may occur when logging on. -->
+    <div id="payment-message-modal" class="general-modal">
+      <div class="general-modal-content">
+        <div class="payment-modal-header">
+          <span id="payment-modal-close" class="general-modal-close">&times;</span>
+          <h2>Confirm Your Payment</h2>
+        </div>
+        <div class="general-modal-body">
+          <p id="modal-message">Unknown Error Message</p>
+          <button type="button" class="btn btn-success btn-block" onclick="paymentConfirm();">Confirm Payment</button>
+        </div>
+      </div>
+    </div>
+
+     <!-- Move to top -->
+    <script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
+    <script>
+      // Get the payment modal.
+      var modal = document.getElementById('payment-message-modal');
+
+      var span = document.getElementById('payment-modal-close');
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      // Collapse the account options sidebar when the toggle button is pressed.
+      $(document).ready(function () {
+        $('#sidebarCollapse').on('click', function () {
+            $('#account-sidebar').toggleClass('active');
+        });
+      });
+    </script>
+  </body>
+</html>

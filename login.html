@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>EBank - Login to Online Banking</title>
+    <!-- TODO: Get favicon working -->
+    <link rel="shortcut icon" href="assets/ebank_favicon.ico" type="image/x-icon" />
+
+    <!-- Add Bootstrap 4 to website. -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Local Stylesheet -->
+    <link rel="stylesheet"  href="css/stylesheet.css" />
+  </head>
+
+  <body id="login-page">
+    <div class="logo">
+        <a href="landing_page.html"><img border="0" alt="EBank By Goel Technologies" src="assets/images/ebank_logo.png"></a>
+    </div>
+
+    <div class="help-tip">
+        <p>Put HCI Info!</p>
+      </div>
+
+    <!-- Login form -->
+    <div class="login-page-form">
+      <div class="form">
+        <!-- TODO: Make submit with login form save username and password to cookies and redirect to dashboard. -->
+        <form class="login-form">
+          <label for="username"><b>Online Banking Username</b></label>
+          <i class="fa fa-user icon"></i>
+          <input id="username" type="text" style="text-align: center;" placeholder="Enter Your Username" required>
+
+          <label for="password"><b>Online Banking Password</b></label>
+          <input id="password" type="password" style="text-align: center;" placeholder="Enter Your Password" required>
+
+          <!-- Remember Me allows for the user to have a flow through their experience of the website. -->
+          <input type="checkbox" id="remember_me">
+          <label for="checkbox">Remember me</label>
+
+          <button type="button" id="loginButton" onclick="processLoginDetails()">Login</button>
+          <p class="message">Not yet registered for Online Banking? <a href="open_your_account.html"><b>Register to Open Your Account</b></a></p>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal error message to handle events that may occur when logging on. -->
+    <div id="login-error-modal" class="general-modal">
+      <div class="general-modal-content">
+        <div class="login-modal-header">
+          <span id="login-modal-close" class="general-modal-close">&times;</span>
+          <h2>Login Error</h2>
+        </div>
+        <div class="general-modal-body">
+          <p id="modal-message">Unknown Error Message</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Make use of the JQuery library to allow for customising the website and processing login. -->
+    <script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
+    <script>
+      // Setup the error modal.
+      var modal = document.getElementById('login-error-modal');
+
+      var span = document.getElementById('login-modal-close');
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+    </script>
+    <script src="js/login.js"></script>
+    <!-- JQuery animation to move between login and registration forms. -->
+    <!--
+    <script>
+      $('.message a').click(function() {
+        $('form').animate({height: "toggle", opacity: "toggle"}, "slow")
+      });
+    </script>
+    -->
+
+    <footer class="container-fluid text-center">
+      <p style="color: white;">EBank 2018, Goel Technologies</p>
+  </footer>
+  </body>
+</html>

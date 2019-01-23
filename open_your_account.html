@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <!-- Add Bootstrap 4 to website -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Add FontAwesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <!-- Local Stylesheet -->
+    <link rel="stylesheet"  href="css/stylesheet.css" />
+
+    <title>EBank - Open Your Account</title>
+    <link rel="shortcut icon" href="assets/ebank_favicon.ico" type="image/x-icon" />
+    
+    <style>
+      .jumbotron {
+        background-color: #23a103;
+        color: #ffffff;
+      }
+    </style> 
+  </head>
+
+  <body id="open-account-page">
+    <header>
+      <!-- Changed navbar color -->
+      <nav class="navbar navbar-expand-lg navbar-light navbar-fixed-top">
+        <a class="navbar-brand" href="landing_page.html">
+          <img src="assets/images/ebank_logo_full_size.png" alt="EBank - Your Online Banking Partner" height="42" width="42"/>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+          data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Collapse navbar for use on various devices. -->
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="landing_page.html">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Open Your Account<span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+          
+          <form class="navbar-form form-inline mt-2 mt-md-0" id="search" role="search">
+            <div class="form-group">
+              <a class="btn btn-info" href="login.html">Login to Online Banking</a>
+            </div>
+          </form>
+        </div>
+      </nav>
+    </header>
+
+    <!-- TODO: Slideshow, or jumbotron? -->
+    <main role="main">
+      <section class="jumbotron">
+        <div class="container">
+          <h1 class="display-3"><strong>EBank Limited</strong></h1>
+          <p class="lead text" style="color: white;">
+            We have made it easier for you to open your account with us this <strong>New Year</strong>!<br/>
+            <br/>
+            Open today and get great benefits this 2019 on your current and savings account(s).
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <div id="open-account-info" class="container-fluid">
+      <h2>Open Your Account</h2>
+      <p style="color: black;">
+        Complete our simple registration form below and we will get back to within our working hours (Monday to Friday 9am-5pm GMT) 
+        or on Saturday/Sunday call our automated service on (+44) 0345 777 8291. 
+        <br/>
+        <br/>
+        Once you have submitted EBank advisers will be able to confirm and activate your account for Online Banking.</p>
+      </div>
+    
+    <!-- Registration allows user to "create an account" to local storage, redirect to login and give message.
+         Online banking registration:
+         Title, first-name, last name, date of birth, postcode,
+         Account type (current/savings account, Credit card, loans,
+         mortgage), sort code, account number
+    -->
+    <div class="card bg-light">
+      <article class="card-body mx-auto" style="max-width: 400px;">
+        <h4 class="card-title mt-1 text-center">Register for Online Banking</h4>
+          <form id="account-registration-form">
+            <!-- Personal Info. Divider. -->
+            <p class="divider-text">
+              <span class="bg-light">Your Personal Information</span>
+            </p>
+
+            <!-- Person Title -->
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+              </div>
+              <select id="registration-title" class="form-control" required>
+                <option value="">Select Title</option>
+                <option value="Mr">Mr.</option>
+                <option value="Mrs">Mrs.</option>
+                <option value="Miss">Miss</option>
+                <option value="Dr">Dr.</option>
+                <option value="Ms">Ms.</option>
+                <option value="Prof">Prof.</option>
+                <option value="Rev">Rev.</option>
+                <option value="Lady">Lady</option>
+                <option value="Sir">Sir</option>
+                <option value="Lord">Lord</option>
+                <option value="The Hon">The Hon.</option>
+              </select>
+            </div>
+
+            <!-- First name -->
+            <div class="form-group input-group">
+              
+              <div class="input-group-prepend">
+                  <span class="input-group-text"> <i class="fa fa-user"></i></span>
+              </div>
+              <input id="registration-first-name" name="" class="form-control" placeholder="First name" type="text" required>
+            </div>
+            
+            <!-- Last name -->
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                  <span class="input-group-text"> <i class="fa fa-user"></i></span>
+              </div>
+              <input id="registration-last-name" name="" class="form-control" placeholder="Last name" type="text" required>
+            </div>
+              
+            <!-- Email Address -->
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+              </div>
+                <input id="registration-email-address" name="" class="form-control" placeholder="Email address" type="email" required>
+            </div>
+
+            <!-- Date of Birth -->
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+              </div>
+              <input id="registration-dob" name="" class="form-control" type="date" value="2000-01-01" min="1900-01-01" max="2008-12-31" required>
+            </div>
+
+            <!-- Telephone number -->
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+              </div>
+              <select id="registration-tel" class="custom-select" style="max-width: 120px;">
+                  <option value="+44">+44 (UK)</option>
+                  <option value="+1">+1 (US)</option>
+                  <option value="+52">+52 (MX)</option>
+                  <option value="+91">+91 (IN)</option>
+                  <option value="+86">+86 (CN)</option>
+              </select>
+                <input name="" class="form-control" placeholder="Phone/Mobile number" type="number" required>
+            </div>
+
+            <!-- Home Postcode -->
+            <div class="form-group input-group">  
+              <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-home"></i></span>
+              </div>
+              <input id="registration-postcode" name="" class="form-control" placeholder="Home Postcode" type="text" required>
+            </div>
+
+            <!-- Account Info. Divider. -->
+            <p class="divider-text">
+                <span class="bg-light">Your Account Information</span>
+            </p>
+            <p style="font-size: 10pt">Please enter your Account Number and Sort-code as a full numbers with no spaces or hypens.</p>
+
+            <!-- Account Type -->
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"> <i class="fa fa-credit-card"></i> </span>
+              </div>
+              <select id="registration-acc-type" class="form-control" required>
+                <option value="">Select Account Type</option>
+                <option value="Current A/C">Current Account</option>
+                <option value="Savings A/C">Savings Account</option>
+                <option value="Credit Card A/C">Credit Card</option>
+                <option value="Loans A/C">Loans</option>
+                <option value="Mortgage A/C">Mortgage</option>
+              </select>
+            </div>  
+
+            <!-- Account Number (Length of 8 digits) -->
+            <div class="form-group input-group">  
+                <div class="input-group-prepend">
+                  <span class="input-group-text"> <i class="fa fa-credit-card"></i></span>
+                </div>
+                <input id="registration-acc-number" name="" class="form-control" placeholder="Account Number" type="text" pattern="\d*" minlength="8" maxlength="8" required>
+            </div>
+
+            <!-- Account Sort-Code (Length of 6 digits) -->
+            <div class="form-group input-group">  
+                <div class="input-group-prepend">
+                  <span class="input-group-text"> <i class="fa fa-home"></i></span>
+                </div>
+                <input id="registration-acc-sortcode" name="" class="form-control" placeholder="Account Sort-code" type="text" pattern="\d*" minlength="6" maxlength="6" required>
+              </div>
+
+            <!-- Online Banking Info. Divider. -->
+            <p class="divider-text">
+                <span class="bg-light">My Online Banking Information</span>
+            </p>
+
+            <!-- Banking Username -->
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"> <i class="fa fa-user"></i></span>
+                </div>
+                <input id="registration-username" name="" class="form-control" placeholder="Create a Banking Username" type="text" onkeyup="return forceLowerCase(this);" required>
+            </div>
+
+            <!-- Password for Online Banking -->
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+            </div>
+                <input id="registration-password" class="form-control" placeholder="Create a Password" type="password" required>
+            </div>
+
+            <!-- Repeat password -->
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+            </div>
+                <input id="registration-rep-password" class="form-control" placeholder="Repeat the Password" type="password" required>
+            </div>            
+              
+            <!-- Submit button - we will not use submit to send data but use tosimulate submit with validation. -->
+            <div class="form-group">
+                <button type="submit" class="btn btn-success btn-block">Create Account</button>
+            </div>   
+
+            <p class="text-center" style="color: black;">Already Registered for Online Banking? <a style="color: blue;" href="login.html">Log In</a> </p>                                                                 
+          </form>
+      </article>
+    </div>
+
+    <!-- Modal error message to handle events that may occur when logging on. -->
+    <div id="registration-message-modal" class="general-modal">
+      <div class="general-modal-content">
+        <div class="registration-modal-header">
+          <span id="registration-modal-close" class="general-modal-close">&times;</span>
+          <h2>Confirm Your Registration</h2>
+        </div>
+        <div class="general-modal-body">
+          <p id="modal-message">Unknown Error Message</p>
+          <button type="button" class="btn btn-success btn-block" onclick="registrationConsent();">I Consent</button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="container-fluid text-center">
+      <a href="#open-account-info" title="To Top">
+        <p>EBank 2018, Goel Technologies</p>
+      </a>
+    </footer>
+
+
+    <!-- Move to top -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+      // Get the registration modal.
+      var modal = document.getElementById('registration-message-modal');
+
+      var span = document.getElementById('registration-modal-close');
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="js/open_account.js"></script>
+  </body>
+</html>
+
+
+
